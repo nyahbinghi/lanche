@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôxe, Que Delícia | Cardápio Digital</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-hint"></div>
+
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="logo">
+                <span class="logo-icon">🍔</span>
+                <span>Ôxe, Que Delícia</span>
+            </h1>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <section class="menu-section">
+            <div class="menu-controls">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar item..." id="searchInput">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="category-tabs">
+                    <button class="tab active" data-category="all">Todos</button>
+                    <button class="tab" data-category="lanches">Lanches</button>
+                    <button class="tab" data-category="bebidas">Bebidas</button>
+                </div>
+            </div>
+
+            <div class="product-grid" id="menuGrid">
+                <!-- Produtos carregados via JavaScript -->
+            </div>
+        </section>
+
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Seu Pedido</h2>
+                <span class="items-count" id="cartCount">0 itens</span>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <div class="empty-icon">🛒</div>
+                    <p>Seu carrinho está vazio</p>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span class="total-price" id="cartTotal">R$ 0,00</span>
+                </div>
+
+                <!-- CAMPOS ATUALIZADOS -->
+<div class="form-group">
+    <label for="deliveryType">Tipo de Pedido</label>
+    <select id="deliveryType" class="form-control">
+        <option value="entrega">Entrega</option>
+        <option value="retirada">Retirada no Local</option>
+    </select>
+</div>
+
+<!-- Campos para entrega -->
+<div id="deliveryFields">
+    <div class="form-group">
+        <label for="customerName">Nome*</label>
+        <input type="text" id="customerName" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="customerPhone">DDD + Telefone*</label>
+        <input type="tel" id="customerPhone" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="customerAddress">Endereço Completo*</label>
+        <textarea id="customerAddress" class="form-control" required></textarea>
+    </div>
+</div>
+
+<!-- Campos para retirada -->
+<div id="pickupFields" style="display: none;">
+    <div class="form-group">
+        <label for="customerNamePickup">Nome*</label>
+        <input type="text" id="customerNamePickup" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="customerPhonePickup">Telefone*</label>
+        <input type="tel" id="customerPhonePickup" class="form-control">
+    </div>
+</div>
+
+<!-- Campos de pagamento -->
+<div id="paymentFields">
+    <div class="form-group">
+        <label for="paymentMethod">Forma de Pagamento*</label>
+        <select id="paymentMethod" class="form-control" required>
+            <option value="">Selecione...</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="pix">PIX</option>
+            <option value="cartao">Cartão</option>
+        </select>
+    </div>
+    <div class="form-group" id="changeField" style="display: none;">
+        <label for="changeAmount">Troco para quanto?</label>
+        <input type="text" id="changeAmount" class="form-control">
+    </div>
+</div>
+
+                <button class="checkout-btn" id="sendOrderBtn">
+                    <span class="whatsapp-icon">📱</span>
+                    Enviar pedido via WhatsApp
+                </button>
+            </div>
+        </aside>
+    </main>
+
+    <button class="cart-btn-mobile">
+        🛒
+        <span class="cart-count-mobile">0</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
